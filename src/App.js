@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import NavBar from './Components/NavBar/index';
+import NavBar from './Components/NavBar/navbar';
 import ItemListContainer from './Components/ItemListContainer';
 import Cards from './Components/Producto/cards';
 import Footer  from './Components/Footer/index';

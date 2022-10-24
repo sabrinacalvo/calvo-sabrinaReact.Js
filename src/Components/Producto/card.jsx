@@ -35,7 +35,8 @@ function Card() {
                                     Cubiertas Trasera	CUBE IMPAC Smartpac, 2.25<br></br>
                                     Cubierta Delantera	CUBE IMPAC Smartpac, 2.25<br></br>
                                 <b>ACCESORIOS</b>	Pedales	CUBE PP MTB<br></br>
-                                PESO	14,8 kg	 
+                                PESO	14,8 kg	 <br></br>
+                                <b>Precio</b> $350.000
  </p>
  <a href="#!" className="btn btn-outline-secondary rounded-0">
     COMPRAR
