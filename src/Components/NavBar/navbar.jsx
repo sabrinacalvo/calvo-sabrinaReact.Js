@@ -1,36 +1,32 @@
-import React from 'react';
-import CardWidget from '../CartWidget';
-import './style.css';
+import logo from "../../logo/logo.png";
+import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import NavbarBootstrap from "react-bootstrap/Navbar";
 
-
-const NavBar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container" id="top">
-            <a className="navbar-brand navBar__Logo">AYFRAN BIKE</a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse justify-content-center col-md-3" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="./index.html"><u>INICIO</u></a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="./paginas/skills.html">BICICLETAS</a>
-                    </li>                                    
-                    <li className="nav-item">
-                        <a className="nav-link" href="./paginas/contact.html">CONTACT0</a>
-                    </li>
-                    <CardWidget />
-                </ul>
-            </div>
-        </div>
-    </nav>
-    );
+function Navbar() {
+  return (
+    <NavbarBootstrap bg="dark" expand="lg" sticky="top">
+      <Container>
+        <NavbarBootstrap.Toggle aria-controls="basic-Navbar-nav" className="order-lg-1"/>
+          <NavbarBootstrap.Brand className="order-lg-0">
+            <Link to={`/`}>
+              <img src={logo} alt="Logo" width="200" height="70" className="d-inline-block align-text-top"></img>
+            </Link>
+          </NavbarBootstrap.Brand>
+          <CartWidget/>
+          <NavbarBootstrap.Collapse id="basic-Navbar-nav nabvarMenu" >
+            <Nav className="me-auto text-center">
+              <Link to={`/category/1`} className="linksNavbar">Funko Pop</Link>
+              <Link to={`/category/2`} className="linksNavbar">Remeras</Link>
+              <Link to={`/category/3`} className="linksNavbar">Tazas</Link>
+              <Link to={`/category/4`} className="linksNavbar">Cd Book</Link>
+            </Nav>
+        </NavbarBootstrap.Collapse>
+      </Container>
+    </NavbarBootstrap>
+  );
 };
 
-export default NavBar;
-
-
+export default Navbar;

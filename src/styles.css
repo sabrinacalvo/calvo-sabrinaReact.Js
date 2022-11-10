@@ -1,0 +1,10 @@
+.linksNavbar{
+    color: #f4eeee;
+    text-transform: uppercase;
+    font-size: 1em;
+    margin: 15px;
+    
+    }
+.linksNavbar:hover {
+    color: #5e6472;
+    }
