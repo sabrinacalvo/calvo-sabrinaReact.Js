@@ -1,9 +1,14 @@
-import React from "react";
+import React from 'react';
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
+  
+//Card
 const Item = ({ id, title, stock, price, thumbnail }) => {
+
+  
+
   return (
     <Col xs={12} md={4} sm={6} lg={3}>
       <Link to={`/item/${id}`}>
@@ -21,5 +26,4 @@ const Item = ({ id, title, stock, price, thumbnail }) => {
     </Col>
   );
 };
-
-export default Item;
+  export default Item;
