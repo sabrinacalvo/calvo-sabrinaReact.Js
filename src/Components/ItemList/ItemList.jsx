@@ -11,7 +11,7 @@ const ItemList = ({products})=> {
           price={producto.price}
           stock={producto.stock}
           category={producto.category}
-          thumbnail={producto.images[0]}/>)          
+          thumbnail={producto.images}/>)          
       }
     </>
   );

@@ -1,23 +1,39 @@
 import React, { useEffect,useState } from "react"
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import {customFetch} from "../utils/customFetch";
-import products from "../utils/productos";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
+
 
 const ItemDetailContainer = () => {
 
   const [detalle, setDetalle] = useState([]);
+  
   let { idItem } = useParams();
 
   useEffect(() => {
-    customFetch(2000, products.find(product => {
-      return product.id === parseInt(idItem);
-    }))
-    .then(result => setDetalle(result))
-    .catch(err => console.log(err))
-  }, [idItem]);
+
+    const getItemDetail = async () => {
+
+           const docRef = doc(db, "products", idItem);
+
+           const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setDetalle({...docSnap.data(), id: docSnap.id})
+            } else {
+                
+                console.log("No such document!");
+            }
+        }
+
+        getItemDetail()
+        
+    }, [idItem])
 
   return (
+        
     <ItemDetail item={detalle}/>
   );
 };

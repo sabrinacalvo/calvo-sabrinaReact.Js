@@ -1,31 +1,75 @@
-import {customFetch} from "../utils/customFetch";
-import products from "../utils/productos";
-import { useEffect,useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import ItemList from "../components/ItemList/ItemList";
-import { Container } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
+import { useParams } from "react-router-dom";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../services/firebase";
+import { Container, Row } from "react-bootstrap";
+import { CircularProgress } from "@mui/material";
 
-const ItemListContainer = () => {
-    const [productos, setProductos] = useState([]);
+
+export default function  ItemListContainer () {
+
+    
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false)
+    
+
     let { idCategory } = useParams();
 
     useEffect(() => {
-        customFetch(2000, products.filter(product => {
-            if (idCategory === undefined) return product;
-            return product.categoryId === parseInt(idCategory)
-        }))
-        .then(result => setProductos(result))
-        .catch(err => console.log(err))
-    }, [idCategory]); 
+        (async () => {
+            try {  
+                setLoading(true)         
+                                             
+               let q;
+               console.log("idCategory", idCategory)
+               
+
+                if (idCategory) {
+                   
+                   q = query(collection(db, "products"), where( "categoryId", "==", parseInt(idCategory))
+                      );
+                 } else {
+                    q = query(collection(db, "products"));
+                 }
+
+                const querySnapshot = await getDocs(q);
+                const productosFirebase = [];
+                querySnapshot.forEach((doc) => {
+                
+                    console.log(doc.id, " => ", doc.data());
+                    productosFirebase.push({...doc.data(), id: doc.id})
+                });
+                setProducts(productosFirebase);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, [idCategory]);
+
+    console.log(products);
+
+    
 
     return (
         <Container className="containerProductos">
             <Row>
-                <ItemList key={products.id} products={productos}/> 
+
+            {loading ? (
+        <div className="loarder-loader">
+          {" "}
+          <CircularProgress color="secondary" />
+          <p className="ms-4 mt-1 ">Cargando...</p>
+        </div>
+            ) :
+            ("")
+        }
+        
+         <ItemList key={products.id} products={products}/> 
+                
             </Row>
         </Container>
     );
 };
 
-export default ItemListContainer;
+

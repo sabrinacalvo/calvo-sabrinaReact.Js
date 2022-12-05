@@ -4,7 +4,12 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
   
-//Card
+/**
+ * card que muestra el producto
+ * @property {object} product recibe el producto en formato de objeto 
+ * @returns  jsx con el renderizado del producto
+ */
+
 const Item = ({ id, title, stock, price, thumbnail }) => {
 
   
