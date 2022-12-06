@@ -2,7 +2,7 @@ import React, { useContext, useState} from "react";
 import Card from "react-bootstrap/Card";
 import ItemCount from "../ItemCount/ItemCount";
 import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import { Shop } from "../../contexts/Shop";
@@ -24,6 +24,7 @@ const ItemDetail = ({ item }) => {
         ?  
         <Card className="cardDetalle">
           <Container> 
+            <Row>
                 <Col xs={12} md={6} sm={6} lg={6}>
                      <Card.Img variant="top" className="imagenProduct" src={item.images}/>
                  </Col>
@@ -40,6 +41,7 @@ const ItemDetail = ({ item }) => {
                   }
                 </Card.Body>
                 </Col>
+                </Row>
             
           </Container>
         </Card>

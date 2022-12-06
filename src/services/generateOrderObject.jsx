@@ -1,7 +1,7 @@
+
 const generateOrderObject = (nombre, email, telefono, cart, total) => {
-   
-     return {
-        order: {
+    return {
+        buyer: {
             nombre: nombre,
             email: email,
             telefono: telefono,
@@ -10,7 +10,7 @@ const generateOrderObject = (nombre, email, telefono, cart, total) => {
         ,
         total: total,
         createdAt: new Date().toLocaleString()
-     }
     }
-    export default generateOrderObject;
+}
 
+export default generateOrderObject;

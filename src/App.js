@@ -30,19 +30,7 @@ return(
                         <Route path="/cart" element={<CartContainer />}/>
                         <Route path="/ContactForm" element={<ContactForm />}/>
                  </Routes>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
+                 
                  <Footer/>
                 
           

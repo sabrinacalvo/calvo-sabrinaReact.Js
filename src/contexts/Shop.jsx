@@ -6,6 +6,8 @@ export const Shop = createContext({});
 const ShopProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
+
+
     const addProduct = (productToAdd) => {
         console.log(productToAdd);
         const flagRepeated = isProductRepeated(productToAdd.id);
@@ -59,6 +61,8 @@ const ShopProvider = ({ children }) => {
         return total
     }
 
+   
+
     return (
         <Shop.Provider
             value={{
@@ -68,6 +72,7 @@ const ShopProvider = ({ children }) => {
                 emptyCart,
                 calculateTotal,
                 totalItemsCart,
+               
             }}
         >
             {children}

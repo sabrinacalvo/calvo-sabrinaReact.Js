@@ -36,14 +36,10 @@ const useFirebase = (idCategory) => {
         })();
     }, [idCategory]);
 
-   
-
-
-    return [data, error, loading]
-    
- 
-  
+ return [data, error, loading]
+     
 }
+
 export default useFirebase
 
 

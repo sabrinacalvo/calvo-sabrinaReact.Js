@@ -2,12 +2,12 @@ import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
 import generateOrderObject from "./generateOrderObject";
 
-export const saveOrder = async (nombre, cel, email, products, total) => {
+export const saveOrder = async (nombre, telefono, email, products, total) => {
     try {
         const generatedOrder = generateOrderObject(
             nombre,
             email,
-            cel,
+            telefono,
             products,
             total
         );
@@ -20,7 +20,7 @@ export const saveOrder = async (nombre, cel, email, products, total) => {
             const docSnap = await getDoc(docRef);
             const productInFirebase = { ...docSnap.data(), id: docSnap.id };
             productsInFirebase.push(productInFirebase);
-            if (productInCart.quantity > productInFirebase.quantity)
+            if (productInCart.cantidad > productInFirebase.cantidad)
                 productOutOfStock.push(productInCart);
         }
     
@@ -28,7 +28,7 @@ export const saveOrder = async (nombre, cel, email, products, total) => {
         console.log(productsInFirebase);
     
         if (productOutOfStock.length === 0) {
-            
+            //Disminuir el stock existente
             console.log(products);
     
             for (const productInCart of products) {
@@ -40,15 +40,15 @@ export const saveOrder = async (nombre, cel, email, products, total) => {
                     "products",
                     productInCart.id
                 );
-                // Actualizo stock del producto
+                // Actualizo el stock del producto
                 await updateDoc(productRef, {
                     quantity:
-                        productInFirebase.quantity -
-                        productInCart.quantity,
+                        productInFirebase.cantidad -
+                        productInCart.cantidad,
                 });
             }
     
-            //Generar orden
+            //Generar la orden
             const docRef = await addDoc(
                 collection(db, "orders"),
                 generatedOrder
@@ -63,7 +63,7 @@ export const saveOrder = async (nombre, cel, email, products, total) => {
                     (productFirebase) => productFirebase.id === product.id
                 );
                 console.log(productInFirebase);
-                mensaje += `${product.name}, stock disponible: ${productInFirebase.quantity}, cantidad pedida: ${product.quantity}\n`;
+                mensaje += `${product.name}, stock disponible: ${productInFirebase.cantidad}, cantidad pedida: ${product.cantidad}\n`;
             }
             alert(`Hay producto/s fuera de stock: \n${mensaje}`);
         }
@@ -71,3 +71,18 @@ export const saveOrder = async (nombre, cel, email, products, total) => {
         console.log(error);
     }
 }
+        // // Add a new document with a generated id
+        // try {
+        // const docRef = await addDoc(collection(db, "orders"), generatedOrder);
+        // alert(`Se generó la order correctamente con ID: ${docRef.id}`)
+        // } catch (error) {
+        // console.log(error)
+        // }
+        // }
+        // else {
+        // alert("Hay algún producto fuera de stock")
+        // }
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }

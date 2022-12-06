@@ -32,18 +32,41 @@ a:hover{
 .linksNavbar:hover {
     color: #5e6472;
     }
-.containerProductos{
+
+.containerProductos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
     }
 
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid grey;
+      box-shadow: 0 0 6px 0  grey;
+      margin-top: 2em;
+  }
     .container-dark {
-        background-color: black;
+        background-color: rgb(248, 244, 244);
+        width: auto;
+        height: auto;
         
 
     }
+    .cardProducto{
+      height: 500px;
+      margin: 10px;
+
+    }
+    .cardImagenProducto{
+      justify-content: center;
+      align-items: center;
+      }
+
       
       .redes {
         display: flex;
@@ -51,12 +74,13 @@ a:hover{
         flex-wrap: wrap;
         align-content: center;
         color: white;
+        background-color: #0a0a0a;
       }
       .bodyformulario {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #5e6472;
+        background-color: #0a0a0a;
         color: white;
         margin: 150px;
         padding: 50px;
@@ -74,3 +98,9 @@ a:hover{
   align-items: center;
 }
     
+.card-cart{
+  width: 90%;
+  flex-direction: inherit;
+  margin-top: 2%;
+  margin-left: 5%;
+}
