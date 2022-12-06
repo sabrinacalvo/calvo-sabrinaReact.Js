@@ -6,9 +6,10 @@ import { Badge, Button } from "react-bootstrap";
 
 
 const CartWidget = () => {
+  const navigate = useNavigate();
 
       const {totalItemsCart} = useContext(Shop);
-      const navigate = useNavigate();
+      
       
       const badge = totalItemsCart()
       console.log("Total de compra", badge)

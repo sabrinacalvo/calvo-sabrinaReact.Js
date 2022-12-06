@@ -71,18 +71,4 @@ export const saveOrder = async (nombre, telefono, email, products, total) => {
         console.log(error);
     }
 }
-        // // Add a new document with a generated id
-        // try {
-        // const docRef = await addDoc(collection(db, "orders"), generatedOrder);
-        // alert(`Se generó la order correctamente con ID: ${docRef.id}`)
-        // } catch (error) {
-        // console.log(error)
-        // }
-        // }
-        // else {
-        // alert("Hay algún producto fuera de stock")
-        // }
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // }
+        

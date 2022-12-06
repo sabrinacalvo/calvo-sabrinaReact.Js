@@ -41,21 +41,7 @@
         "stock": 100
         
       },
-      {
-        "id": 4,
-        "name": "Funko Pop Bts Dynamite Rm", 
-        "images": "https://http2.mlstatic.com/D_NQ_NP_2X_866605-MLA49326715101_032022-F.webp", 
-        "detail": "Funko Pop #218 Bts Dynamite Rm",
-        "categoryId": 1,
-        "category": {
-          "name": "FunkoPop",
-          "id": 1
-        },   
-        "price": "ARS 9,895",
-        "stock": 100
-       
-      },
-      
+            
       {
         "id": 11,
         "name": "Remeras Adulto Bts K-pop 100% Algodón", 

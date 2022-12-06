@@ -5,7 +5,7 @@
 
 
 
- export const ItemCount = ({stock, initial, onAdd}) => {
+ export const ItemCount = ({stock, onAdd}) => {
      
          const [count, setCount] = useState(0)
 

@@ -6,7 +6,7 @@ import { Theme }  from "./contexts/Theme";
 import Footer from "./components/Footer/Footer";
 import { useContext } from "react";
 import CartContainer from "./containers/CartContainer";
-import ContactForm from "./components/ContactForm/ContactForm";
+import ContactForm from "./components/Formulario/Formulario";
 
 
 
@@ -28,7 +28,7 @@ return(
                         <Route path="/category/:idCategory" element={<ItemListContainer/>} />
                         <Route path="/item/:idItem" element={<ItemDetailContainer/>} />
                         <Route path="/cart" element={<CartContainer />}/>
-                        <Route path="/ContactForm" element={<ContactForm />}/>
+                        <Route path="/formulario" element={<ContactForm />}/>
                  </Routes>
                  
                  <Footer/>

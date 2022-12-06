@@ -32,11 +32,11 @@ const ItemDetail = ({ item }) => {
                 <Card.Body>
                   <Card.Title className="tituloProductoDetalle">{item.name}</Card.Title>
                   <Card.Text> {item.detail}</Card.Text>
-                  <Card.Text className="stockProducto"> Stock: {item.stock} u.</Card.Text>
+                  <Card.Text className="stockProducto"> Stock: {item.cantidad} u.</Card.Text>
                   <Card.Text className="precioProducto"> Precio: {item.price} ARS</Card.Text>
                   {
                     itemCount === 0
-                    ? <ItemCount stock={item.stock} init={itemCount} onAdd={onAdd}/>
+                    ? <ItemCount stock={item.cantidad} init={itemCount} onAdd={onAdd}/>
                     : <Link to={`/cart`}><Button variant="outline-primary">Ir al Carrito</Button></Link>
                   }
                 </Card.Body>
