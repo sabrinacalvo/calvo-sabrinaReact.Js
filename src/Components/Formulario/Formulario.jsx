@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Shop } from "../../contexts/Shop";
 import { saveOrder } from "../../services/saveOrder";
 import { useNavigate } from "react-router-dom";
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 
 const Formulario = () => {
@@ -45,13 +45,13 @@ const navigate = useNavigate();
 
   return (
                
-        <Container className="w-100" expand="lg" bg="light" variant="light"> 
+        <Container className="mx-5" expand="lg"> 
                     
                   <form className='formulario'onSubmit={enviarDatos}>
-                  <input className='input' name="name" type="text" placeholder='Ingresar Nombre'  onChange={handleInputChange}/>
-                  <input className='input' name="email" type="email" placeholder='Ingresar Email'  onChange={handleInputChange}/>
-                  <input className='input' name="phone" type="tel" placeholder='Ingresar Teléfono'  onChange={handleInputChange}/>
-                  <button className='boton' onClick={confirmPurchase} type="submit">Enviar</button>
+                            <input className='input' name="name" type="text" placeholder='Ingresar Nombre'  onChange={handleInputChange}/>
+                            <input className='input' name="email" type="email" placeholder='Ingresar Email'  onChange={handleInputChange}/>
+                            <input className='input' name="phone" type="tel" placeholder='Ingresar Teléfono'  onChange={handleInputChange}/>
+                            <Button className='boton' onClick={confirmPurchase} type="submit">Enviar</Button>
                   </form>
         </Container>
             
