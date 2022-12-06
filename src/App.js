@@ -43,16 +43,7 @@ return(
                  <br/>
                  <br/>
                  <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-                 <br/>
-
-                <Footer/>
+                 <Footer/>
                 
           
             </BrowserRouter>

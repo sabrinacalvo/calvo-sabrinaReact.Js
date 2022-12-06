@@ -1,6 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase/config";
-import item from '../components/Item';
+import { db } from "./firebase";
+import item from '../Data/Data.json';
+
 
 const saveProductsFirebase = async () => {
 
@@ -9,9 +10,15 @@ const saveProductsFirebase = async () => {
        item.forEach(async (item) => {
             const docRef = await addDoc(collection(db, "products"), {
                 name: item.name,
-                price: item.price,
                 images: item.images,
+                detail: item.detail,
+                categoryId: item.categoryId,
+                category: item.category,
+                price: item.price,
                 stock: item.stock,
+                
+                
+
                 
             });
             console.log("Document written with ID: ", docRef.id);

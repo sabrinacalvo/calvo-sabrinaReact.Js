@@ -24,41 +24,40 @@ const ShopProvider = ({ children }) => {
         } else {
             setProducts([...products, productToAdd]);
         }
-    };
+    }
 
     //Equivalente a isInCart
     const isProductRepeated = (id) => {
         return products.some((product) => product.id === id);
-    };
+    }
 
     //Eliminar un producto
     const removeProduct = (id) => {
         const productosCart = products.filter(
             (productsInCart) => productsInCart.id !== id);
         setProducts(productosCart);
-    };
+    }
 
     //Vaciar el carrito
     const emptyCart = () => {
         setProducts([]);
-    };
+    }
+
 
     //Cálculo del total
     const calculateTotal = () => {
         const total = products.reduce(
             (acc, productoActual) =>
-                (acc += productoActual.cantidad * productoActual.price),
-            0
-        );
-        return total;
-    };
-
+                acc += productoActual.cantidad * productoActual.price, 0)
+                return total
+    }
+         
     //Cálculo del total de items del carrito
     const totalItemsCart = () => {
         let total = 0;
         products.forEach((product) => (total += product.cantidad));
-        return total;
-    };
+        return total
+    }
 
     return (
         <Shop.Provider

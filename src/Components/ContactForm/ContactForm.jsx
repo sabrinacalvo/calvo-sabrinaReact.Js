@@ -2,7 +2,10 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
+
 const   ContactForm = ({setearNombre, setearEmail, setearTelefono, nombre, telefono, enviarDatos})=>{
+
+  
 
 
 
